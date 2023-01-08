@@ -24,7 +24,8 @@ db.mongoose
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:8081"],
+    // origin: ["http://localhost:8081"],
+    origin: ["https://fantomes.vercel.app/"],
   })
 );
 
