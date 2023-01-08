@@ -38,7 +38,7 @@ exports.signup = (req, res) => {
               return;
             }
 
-            res.send({ message: "User was registered successfully!" });
+            res.send({ message: "Votre inscription s'est bien déroulé!" });
           });
         }
       );
@@ -56,7 +56,7 @@ exports.signup = (req, res) => {
             return;
           }
 
-          res.send({ message: "User was registered successfully!" });
+          res.send({ message: "Votre inscription s'est bien déroulé!" });
         });
       });
     }
@@ -75,7 +75,7 @@ exports.signin = (req, res) => {
       }
 
       if (!user) {
-        return res.status(404).send({ message: "User Not found." });
+        return res.status(404).send({ message: "L'utilisateur n'existe pas." });
       }
 
       var passwordIsValid = bcrypt.compareSync(
@@ -84,7 +84,7 @@ exports.signin = (req, res) => {
       );
 
       if (!passwordIsValid) {
-        return res.status(401).send({ message: "Invalid Password!" });
+        return res.status(401).send({ message: "Mauvais mot de passe!" });
       }
 
       var token = jwt.sign({ id: user.id }, config.secret, {
@@ -112,7 +112,7 @@ exports.signin = (req, res) => {
 exports.signout = async (req, res) => {
   try {
     req.session = null;
-    return res.status(200).send({ message: "You've been signed out!" });
+    return res.status(200).send({ message: "Vous vous êtes déconnecté!" });
   } catch (err) {
     this.next(err);
   }

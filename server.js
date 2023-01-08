@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cookieSession({
-    name: "bezkoder-session",
+    name: "fantomes-session",
     secret: "COOKIE_SECRET", // should use as secret environment variable
     httpOnly: true
   })
@@ -44,7 +44,7 @@ app.use(
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Bienvenu chez les fantomes." });
+  res.json({ message: "Bienvenue chez les fantomes." });
 });
 
 // routes

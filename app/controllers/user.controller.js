@@ -13,7 +13,7 @@ exports.findAll = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving users."
+          err.message || "Une erreur s'est produite lors de la récupération des utilisateurs."
       });
     });
 };
@@ -25,13 +25,13 @@ exports.findOne = (req, res) => {
   User.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found user with id " + id });
+        res.status(404).send({ message: "Utilisateur non trouvé avec l'id: " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving user with id=" + id });
+        .send({ message: "Une erreur s'est produite lors de la récupération de l'utilisateur: " + id });
     });
 };
 
@@ -39,7 +39,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
-      message: "Data to update can not be empty!"
+      message: "Aucune info a modifié n'a été envoyé!"
     });
   }
 
@@ -49,13 +49,13 @@ exports.update = (req, res) => {
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update user with id=${id}. Maybe user was not found!`
+          message: `L'utilisateur ${id} n'a pas pu être modifié. Peut être que l'utilisateur n'a pas été trouvé!`
         });
-      } else res.send({ message: "User was updated successfully." });
+      } else res.send({ message: "L'utilisateur a été modifié avec succès." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating user with id=" + id
+        message: "Une erreur s'est produite lors de la modification de l'utilisateur " + id
       });
     });
 };
@@ -64,7 +64,7 @@ exports.update = (req, res) => {
 exports.addFriend = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
-      message: "Data to update can not be empty!"
+      message: "Information vide!"
     });
   }
 
@@ -74,13 +74,13 @@ exports.addFriend = (req, res) => {
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update user with id=${id}. Maybe user was not found!`
+          message: `L'utilisateur ${id} n'a pas pu être modifié. Peut être que l'utilisateur n'a pas été trouvé!`
         });
-      } else res.send({ message: "User was updated successfully." });
+      } else res.send({ message: "L'utilisateur a été modifié avec succès." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating user with id=" + id
+        message: "Une erreur s'est produite lors de la modification de l'utilisateur " + id
       });
     });
 };
@@ -89,7 +89,7 @@ exports.addFriend = (req, res) => {
 exports.deleteFriend = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
-      message: "Data to update can not be empty!"
+      message: "Information vide!"
     });
   }
 
@@ -99,13 +99,13 @@ exports.deleteFriend = (req, res) => {
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete friend with id=${id}. Maybe user was not found!`
+          message: `L'utilisateur ${id} n'a pas pu être modifié. Peut être que l'utilisateur n'a pas été trouvé!`
         });
-      } else res.send({ message: "Friend was deleted successfully." });
+      } else res.send({ message: "L'ami a été supprimé avec succès." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating friend with id=" + id
+        message: "Une erreur s'est produite lors de la modification de l'utilisateur " + id
       });
     });
 };
