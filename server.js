@@ -25,7 +25,7 @@ app.use(
   cors({
     credentials: true,
     // origin: ["http://localhost:8081"],
-    origin: ["https://fantomes.vercel.app/"],
+    origin: ["https://fantomes.vercel.app"],
   })
 );
 
