@@ -1,1 +1,2 @@
-# Serveur NodeJs pour l'application Fantômes.
+# Server Fantomes.
+Back-end de l'aplication Fantômes.
