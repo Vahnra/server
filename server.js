@@ -8,7 +8,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`process.env.MANGO_KEY`, {
+  .connect(process.env.MANGO_KEY, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
