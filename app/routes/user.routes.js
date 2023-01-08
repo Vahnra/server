@@ -16,8 +16,8 @@ module.exports = function(app) {
 
   app.put("/user/add/:id", controller.addFriend);
 
-  app.get("/user/detail/:id", controller.findOne)
+  app.get("/user/detail/:id", controller.findOne);
 
-  app.get("/user/delete/:id", controller.deleteFriend)
+  app.put("/user/delete-friend/:id", controller.deleteFriend);
 
 };

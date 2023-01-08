@@ -95,7 +95,7 @@ exports.deleteFriend = (req, res) => {
 
   const id = req.params.id;
 
-  User.findByIdAndUpdate(id, { $pullAll: { friends: { _id: req.body.id } } }, { useFindAndModify: false })
+  User.findByIdAndUpdate(id, { $pull: { friends: { _id: req.body.id } } }, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
